@@ -1,0 +1,75 @@
+=========================LAMP( WORDPRESS)===========
+
+launch the linux machine  and install the apache
+
+1)yum install httpd
+2) systemctl start httpd
+3) systemctl enable httpd
+4) allow the 80 port number
+
+=============================
+
+SQL
+
+1) enable the EPEL for sql 
+
+ yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
+
+2) yum update
+
+3) yum install mysql-community-server    ----- install the mysql
+
+4) systemctl start mysqld.service       -------  start the mysql
+
+5)systemctl enable mysqld.service    	------- enable the mysql 
+
+6)systemctl status mysqld.service	------   check the status
+
+7) cd /var/logs/
+
+   more mysqld.log
+   copy the password   by using this pasword we can change the password
+
+8) mysql_secure_installation   change the password Mysql!23   like that
+
+9) mysql -h localhost -u root -p Mysql!23     -----  connect to sql database
+
+
+10) show databases;    -----------check the data bases
+
+11) create database wordpress   ------ create database for the name of wordpress
+    exit
+
+===========================================
+
+PHP (WORDPRESS)
+
+===yum install wget -y ===
+
+1) wget http://wordpress.org/latest.tar.gz      downlaod package 
+
+
+2)tar -xvzf latest.tar.gz  ----extract the file 
+
+
+3) go to  cd wordpress/
+ 
+copy all files into      cp -rvf * /var/www/html	
+ 
+    
+4)  edit the file     vi /etc/httpd/conf/httpd.conf
+
+     edit 164 line   repalce index.php in place of index.html
+
+
+5)cp  wp-config-sample.php  wp-config.php
+
+7) edit the file vi wp-config.php 
+    give the database name user name and pasword
+
+8) yum install php*
+ 
+and restart the service  systemctl restart httpd
+
+check the browser
+
