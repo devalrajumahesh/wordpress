@@ -73,3 +73,7 @@ and restart the service  systemctl restart httpd
 
 check the browser
 
+docker run -p 9000:9000 -e WORDPRESS_DB_HOST=raju.cuoxpxyhrkgk.ap-south-1.rds.amazonaws.com:3306 -e WORDPRESS_DB_USER=raju -e WORDPRESS_DB_PASSWORD=mahesh220 -e WORDPRESS_DB_NAME=raju -it wordpress
+
+
+ on the fly we can create container and connecting to database
